@@ -129,7 +129,7 @@ const Index = () => {
           <h2 className="font-orbitron text-4xl md:text-6xl font-bold text-center mb-16 neon-text-magenta">
             РЕЛИГИИ БУДУЩЕГО
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {[
               {
                 title: 'Киберпанк Ислам',
@@ -151,6 +151,20 @@ const Index = () => {
                 description: 'Буддистские храмы с квантовыми мандалами. Просветление через нейроинтерфейс.',
                 color: 'green',
                 glitchText: 'MACHINE ZEN'
+              },
+              {
+                title: 'Православие 3.0',
+                image: '/img/67d3825e-edd9-482c-92d2-390cfb437143.jpg',
+                description: 'Золотые купола с неоновым свечением. Цифровые иконы и голографические святые.',
+                color: 'cyan',
+                glitchText: 'ORTHODOX 3.0'
+              },
+              {
+                title: 'Кибер Иудаизм',
+                image: '/img/2857a79a-f9d4-4bc5-afd2-04cc2e21b565.jpg',
+                description: 'Звезда Давида из неона и квантовая Тора. Синагоги в виртуальном пространстве.',
+                color: 'magenta',
+                glitchText: 'CYBER JUDAISM'
               }
             ].map((religion, index) => (
               <div key={index} className="group" style={{ perspective: '1000px' }}>
@@ -247,7 +261,9 @@ const Index = () => {
             {[
               '/img/91afaddd-d4bc-4036-929b-076921295bd1.jpg',
               '/img/647a86cd-096a-4ce2-a0b3-71b01733bf15.jpg',
-              '/img/7e22bde7-539b-4632-8996-c67f5bfc7f92.jpg'
+              '/img/7e22bde7-539b-4632-8996-c67f5bfc7f92.jpg',
+              '/img/67d3825e-edd9-482c-92d2-390cfb437143.jpg',
+              '/img/2857a79a-f9d4-4bc5-afd2-04cc2e21b565.jpg'
             ].map((image, index) => (
               <div key={index} className="group" style={{ perspective: '1000px' }}>
                 <Card className="card-3d holographic bg-cyber-darker/50 neon-border-cyan hover:neon-border-magenta transition-all duration-300 group-hover:animate-hologram">
