@@ -56,7 +56,7 @@ const Index = () => {
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center pt-20">
         <div className="container mx-auto px-6 text-center">
-          <h1 className="font-orbitron text-6xl md:text-8xl font-black mb-8 animate-float">
+          <h1 className="font-orbitron text-6xl md:text-8xl font-black mb-8 animate-float glitch-effect" data-text="CYBER FAITH">
             <span className="neon-text-cyan">CYBER</span>
             <span className="neon-text-magenta"> FAITH</span>
           </h1>
@@ -135,40 +135,50 @@ const Index = () => {
                 title: 'Киберпанк Ислам',
                 image: '/img/91afaddd-d4bc-4036-929b-076921295bd1.jpg',
                 description: 'Цифровые мечети с голографической каллиграфией. Где традиция встречается с технологией.',
-                color: 'cyan'
+                color: 'cyan',
+                glitchText: 'CYBER ISLAM'
               },
               {
                 title: 'Крестоносцы 2.0',
                 image: '/img/7e22bde7-539b-4632-8996-c67f5bfc7f92.jpg',
                 description: 'Неоновые рыцари киберпространства. Защитники цифровой веры в мире корпораций.',
-                color: 'magenta'
+                color: 'magenta',
+                glitchText: 'CYBER CRUSADERS'
               },
               {
                 title: 'Дзен Машин',
                 image: '/img/647a86cd-096a-4ce2-a0b3-71b01733bf15.jpg',
                 description: 'Буддистские храмы с квантовыми мандалами. Просветление через нейроинтерфейс.',
-                color: 'green'
+                color: 'green',
+                glitchText: 'MACHINE ZEN'
               }
             ].map((religion, index) => (
-              <Card key={index} className={`bg-cyber-darker/50 neon-border-${religion.color} hover:scale-105 transition-transform duration-300`}>
-                <CardContent className="p-0">
-                  <div className="aspect-video overflow-hidden rounded-t-lg">
-                    <img 
-                      src={religion.image} 
-                      alt={religion.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className={`font-orbitron text-xl font-bold mb-3 neon-text-${religion.color}`}>
-                      {religion.title}
-                    </h3>
-                    <p className="text-gray-300 leading-relaxed">
-                      {religion.description}
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
+              <div key={index} className="group" style={{ perspective: '1000px' }}>
+                <Card className={`card-3d holographic matrix-bg bg-cyber-darker/50 neon-border-${religion.color} group-hover:animate-tilt-3d transition-all duration-500 transform-gpu`}>
+                  <CardContent className="p-0 card-content">
+                    <div className="aspect-video overflow-hidden rounded-t-lg relative">
+                      <img 
+                        src={religion.image} 
+                        alt={religion.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-cyber-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className={`absolute bottom-4 left-4 glitch-effect neon-text-${religion.color} font-orbitron font-bold text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500`} data-text={religion.glitchText}>
+                        {religion.glitchText}
+                      </div>
+                    </div>
+                    <div className="p-6 depth-2">
+                      <h3 className={`font-orbitron text-xl font-bold mb-3 neon-text-${religion.color} group-hover:animate-neon-pulse`}>
+                        {religion.title}
+                      </h3>
+                      <p className="text-gray-300 leading-relaxed group-hover:text-white transition-colors duration-300">
+                        {religion.description}
+                      </p>
+                      <div className={`mt-4 h-1 bg-gradient-to-r from-transparent via-${religion.color === 'cyan' ? 'cyber-cyan' : religion.color === 'magenta' ? 'cyber-magenta' : 'cyber-green'} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
             ))}
           </div>
         </div>
@@ -239,17 +249,23 @@ const Index = () => {
               '/img/647a86cd-096a-4ce2-a0b3-71b01733bf15.jpg',
               '/img/7e22bde7-539b-4632-8996-c67f5bfc7f92.jpg'
             ].map((image, index) => (
-              <Card key={index} className="bg-cyber-darker/50 neon-border-cyan hover:neon-border-magenta transition-all duration-300 group">
-                <CardContent className="p-0">
-                  <div className="aspect-square overflow-hidden rounded-lg">
-                    <img 
-                      src={image} 
-                      alt={`Gallery ${index + 1}`}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-                </CardContent>
-              </Card>
+              <div key={index} className="group" style={{ perspective: '1000px' }}>
+                <Card className="card-3d holographic bg-cyber-darker/50 neon-border-cyan hover:neon-border-magenta transition-all duration-300 group-hover:animate-hologram">
+                  <CardContent className="p-0">
+                    <div className="aspect-square overflow-hidden rounded-lg relative">
+                      <img 
+                        src={image} 
+                        alt={`Gallery ${index + 1}`}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-br from-cyber-cyan/20 to-cyber-magenta/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <Icon name="Zap" className="text-cyber-cyan animate-pulse" size={24} />
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
             ))}
           </div>
         </div>

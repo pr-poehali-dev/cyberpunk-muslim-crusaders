@@ -112,6 +112,22 @@ export default {
 					'50%': { 
 						boxShadow: '0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor' 
 					}
+				},
+				'tilt-3d': {
+					'0%': { transform: 'perspective(1000px) rotateX(0deg) rotateY(0deg)' },
+					'25%': { transform: 'perspective(1000px) rotateX(5deg) rotateY(-5deg)' },
+					'50%': { transform: 'perspective(1000px) rotateX(0deg) rotateY(-10deg)' },
+					'75%': { transform: 'perspective(1000px) rotateX(-5deg) rotateY(-5deg)' },
+					'100%': { transform: 'perspective(1000px) rotateX(0deg) rotateY(0deg)' }
+				},
+				'hologram': {
+					'0%': { opacity: '1', transform: 'scale(1)' },
+					'50%': { opacity: '0.7', transform: 'scale(1.02)' },
+					'100%': { opacity: '1', transform: 'scale(1)' }
+				},
+				'matrix-rain': {
+					'0%': { transform: 'translateY(-100%)' },
+					'100%': { transform: 'translateY(100vh)' }
 				}
 			},
 			animation: {
@@ -119,7 +135,10 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'neon-pulse': 'neon-pulse 2s ease-in-out infinite',
 				'float': 'float 3s ease-in-out infinite',
-				'glow': 'glow 2s ease-in-out infinite'
+				'glow': 'glow 2s ease-in-out infinite',
+				'tilt-3d': 'tilt-3d 6s ease-in-out infinite',
+				'hologram': 'hologram 3s ease-in-out infinite',
+				'matrix-rain': 'matrix-rain 3s linear infinite'
 			},
 			fontFamily: {
 				'orbitron': ['Orbitron', 'monospace'],
